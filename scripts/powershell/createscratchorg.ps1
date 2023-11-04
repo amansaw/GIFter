@@ -26,10 +26,10 @@ else{
     sf org create scratch --set-default --definition-file config/project-scratch-def.json -a $scratchOrgAlias --duration-days 30 --admin-email $email 
 
     # Install nebula Logger
-    sf package install --wait 20 --security-type AdminsOnly --package 04t5Y000001Mjx5QAC
+    sf package install -w 60 --security-type AdminsOnly --package 04t5Y000001Mjx5QAC
 
     # Push the code to the scratch org
-    sf project deploy start -o $scratchOrgAlias --wait 20
+    sf project deploy start -o $scratchOrgAlias -w 60
 
     # Assign the default user in the scratch org to this permission set
     sf org assign permset --name GIFter
